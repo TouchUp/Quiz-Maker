@@ -115,3 +115,27 @@ function createNewOption(op_name_new, op_no_new, t_val_new, q_no_new){
 				createNewOption(OPTION_NAME, OPTION_NUMBER,TRUTH_VALUE,QUESTION_NUMBER);
 				}
 		}
+
+/*----------------------------------------
+MOVE RIGHT FUNCTION
+----------------------------------------*/
+/*			
+		function left(){
+			if (i>0){
+			i--;
+			displayQuestion();
+			}
+		}		
+		
+		function right(){
+			if (i<(x.length-1)){
+				i++;
+				callXml(globalLevel, globalSubject);
+				}
+			else {
+				endQuiz();
+				document.getElementById("question").innerHTML="Well done! You have finished all the questions!";				
+			}
+				
+			}
+		*/
