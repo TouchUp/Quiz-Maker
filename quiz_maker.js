@@ -35,7 +35,7 @@ function createNewOption(op_name, op_no, t_val, q_no){
 	function callXml(quiz_name){
 		global_quiz_name = quiz_name;
 		xmlhttp=new XMLHttpRequest();
-		xmlhttp.open("GET",'./Quiz Questions' + quiz_name + '.xml',false);
+		xmlhttp.open("GET",'./Quiz Questions/' + quiz_name,false);
 		xmlhttp.send();
 		xmlDoc=xmlhttp.responseXML;	
 		//Get every single element with tag name 'question'
@@ -56,10 +56,11 @@ function createNewOption(op_name, op_no, t_val, q_no){
 
 			optionArray = [];
 
-			for each (option in questionArray[i]){
+			for (a = 0; a < questionArray[i].length; a++){
 				//We push the corresponding option into an options Array
 				//just to make it simpler
 				//The options array ONLY contains options from ONE question
+				option = (questionArray[i].getElementsByTagName("options")[a].childNodes[0].nodeValue);
 				optionArray.push(option);
 			}
 
