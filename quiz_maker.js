@@ -55,12 +55,14 @@ function createNewOption(op_name, op_no, t_val, q_no){
 			//get as many options as there are in that particular question
 
 			optionArray = [];
+			console.log(questionArray[i]);
 
 			for (a = 0; a < questionArray[i].length; a++){
 				//We push the corresponding option into an options Array
 				//just to make it simpler
 				//The options array ONLY contains options from ONE question
 				option = (questionArray[i].getElementsByTagName("options")[a].childNodes[0].nodeValue);
+				alert(option);
 				optionArray.push(option);
 			}
 

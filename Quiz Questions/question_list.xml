@@ -3,8 +3,9 @@
 <quiz>
 	<question>
 		<header>Which is more?</header>
-		<content></content>
+		<content> test</content>
 		<option truth_value = "truth"><![CDATA[<img src = "./Images/q1/6.png">]]> </option>
 		<option truth_value = "false"><![CDATA[<img src = "./Images/q1/5.png">]]></option>
 	</question>
+	<footer> </footer>
 </quiz>
