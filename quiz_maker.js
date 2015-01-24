@@ -20,21 +20,25 @@ function Option(op_no, t_val, q_no){
 	}
 }
 
-function createNewOption(op_name, op_no, t_val, q_no){
-	
-	//We use op_name here as the name of the new created option
-	new_option = new Option(op_no, t_val, q_no);
+function createNewOption(op_name_new, op_no_new, t_val_new, q_no_new){
+	/*
+	console.log(op_name_new);
+	console.log(op_no_new);
+	console.log(t_val_new);
+	console.log(q_no_new);
+	*/
 
-	console.log(op_name);
+	new_option = new Option(op_no_new, t_val_new, q_no_new);
+
 	console.log(new_option);
 
 	var option_html = document.createElement("div");
-	option_html.id = op_name;
+	option_html.id = op_name_new;
 
 	var parent = document.getElementById('question');
 	parent.appendChild(option_html);
-	//console.log("The parent element"+ parent);
-	document.getElementById(op_name).innerHTML = OPTION_CONTENT;
+	//console.log(parent);
+	document.getElementById(op_name_new).innerHTML = OPTIONSARRAY[op_no_new];
 }
 
 /* -----------------------
@@ -82,8 +86,8 @@ function createNewOption(op_name, op_no, t_val, q_no){
 			for (a = 0; a < OPTIONS.length; a++){
 				OPTION_CONTENT = OPTIONS[a].childNodes[0].nodeValue;
 				//option.truth_value =  options[a].getAttributeNode('truth_value');
-				console.log(OPTION_CONTENT);
 				OPTIONSARRAY.push(OPTION_CONTENT);
+				//console.log(OPTIONSARRAY);
 				displayInfo();			
 		}
 	}
@@ -98,13 +102,16 @@ function createNewOption(op_name, op_no, t_val, q_no){
 			//For option, there is no option divs, we have to create ourselves
 			//So, let's call a createNewOption function.
 
-			for (j = 0; j < OPTIONSARRAY.length; j++){
+			for (j = 0; j < ((OPTIONSARRAY.length)); j++){
 				OPTION_NAME = i + "_" + j;
 				OPTION_NUMBER = j;
 				QUESTION_NUMBER = Number(i);
+				console.log("question number: " + QUESTION_NUMBER);
+
+				TRUTH_VALUE = false; //Gotta change this
+
 				//truth_value = OPTIONSARRAY[j].getAttribute('truth_value');
-				TRUTH_VALUE = false;
 				//Finally, we create a new Option.
-				createNewOption(OPTION_NAME, OPTION_NUMBER, QUESTION_NUMBER, TRUTH_VALUE);
+				createNewOption(OPTION_NAME, OPTION_NUMBER,TRUTH_VALUE,QUESTION_NUMBER);
 				}
 		}
