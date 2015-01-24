@@ -22,7 +22,16 @@ function Option(op_no, t_val, q_no){
 
 function createNewOption(op_name, op_no, t_val, q_no){
 	op_name = new Option(op_no, t_val, q_no);
-	
+
+	console.log(option_name);
+	console.log(op_name);
+
+	var option_html = document.createElement("div");
+	option_html.id = op_name;
+
+	var parent = document.getElementById('question');
+	parent.appendChild(option_html);
+	document.getElementById(op_name).innerHTML = option;
 }
 
 /* -----------------------
@@ -51,19 +60,20 @@ function createNewOption(op_name, op_no, t_val, q_no){
 		function displayQuestion(questionArray){
 			header=(questionArray[i].getElementsByTagName("header")[0].childNodes[0].nodeValue);
 			content=(questionArray[i].getElementsByTagName("content")[0].childNodes[0].nodeValue);
+			options=(questionArray[i].getElementsByTagName("option"));
 			
 			//get as many options as there are in that particular question
 
-			optionArray = [];
-			console.log(questionArray[i]);
+			optionsArray = [];
 
-			for (a = 0; a < questionArray[i].length; a++){
+			for (a = 0; a < options.length; a++){
 				//We push the corresponding option into an options Array
 				//just to make it simpler
 				//The options array ONLY contains options from ONE question
-				option = (questionArray[i].getElementsByTagName("options")[a].childNodes[0].nodeValue);
-				alert(option);
-				optionArray.push(option);
+				option = options[a].childNodes[0].nodeValue;
+				//option.truth_value =  options[a].getAttributeNode('truth_value');
+				console.log(option);
+				optionsArray.push(option);
 			}
 
 				// This block of code generates the HTML elements dynamically
@@ -74,11 +84,12 @@ function createNewOption(op_name, op_no, t_val, q_no){
 				//For option, there is no option divs, we have to create ourselves
 				//So, let's call a createNewOption function.
 
-				for (j = 0; j < optionArray.length; j++){
+				for (j = 0; j < optionsArray.length; j++){
 					option_name = i + "_" + j;
 					option_number = j;
-					question_number = i;
-					truth_value = optionArray[j].getAttribute('truth_value');
+					question_number = Number(i);
+					//truth_value = optionsArray[j].getAttribute('truth_value');
+					truth_value = false;
 					//Finally, we create a new Option.
 					createNewOption(option_name, option_number, question_number, truth_value);
 				}
