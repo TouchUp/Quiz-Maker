@@ -1,0 +1,6 @@
+.slide {
+	height: 400px;
+	width: 400px;
+	background-color: hsl(20, 80%, 80%);
+	border: 1px solid black;
+}
