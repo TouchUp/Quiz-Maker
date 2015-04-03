@@ -4,7 +4,7 @@ function createNewSlide() {
 	new_slide.className = 'slide';
 	/** this slide has a unique ID **/
 	//new_slide.id = 
-	new_slide.innerHTML += '<form>ID:</form>';
+	new_slide.innerHTML += "<form>ID: <input type = 'number'></input> Links to: <input type = 'number'></input></form>";
 	//Add new button to slide
 	new_slide.innerHTML += '<button onclick = "createNewOption()">Create New Option </button>';
 }
